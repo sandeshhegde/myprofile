@@ -54,24 +54,22 @@ body {
 /* ── NAV ── */
 .nav {
   position: fixed; top:0; left:0; right:0; z-index:100;
-  display:flex; justify-content:space-between; align-items:center;
-  padding: 18px 60px;
-  background: rgba(249,246,241,0.94);
+  display:flex; justify-content:center; align-items:center;
+  padding: 16px 60px;
+  background: rgba(249,246,241,0.96);
   backdrop-filter: blur(20px);
   border-bottom: 1px solid var(--border2);
   box-shadow: var(--s1);
 }
-.nav-logo { font-family:'Cormorant Garamond',serif; font-size:20px; font-weight:600; color:var(--ink); }
-.nav-logo span { color:var(--gold); }
-.nav-links { display:flex; gap:28px; list-style:none; }
-.nav-links a { font-family:'DM Mono',monospace; font-size:10px; letter-spacing:0.2em; color:var(--muted); text-decoration:none; text-transform:uppercase; transition:color 0.25s; }
+.nav-links { display:flex; gap:32px; list-style:none; margin:0; }
+.nav-links a { font-family:'DM Mono',monospace; font-size:10px; letter-spacing:0.22em; color:var(--muted); text-decoration:none; text-transform:uppercase; transition:color 0.25s; }
 .nav-links a:hover { color:var(--gold); }
 
 /* ── HERO ── */
 .hero {
   position:relative; min-height:100vh;
   display:flex; flex-direction:column; justify-content:center;
-  padding: 110px 60px 80px; overflow:hidden;
+  padding: 100px 60px 80px; overflow:hidden;
 }
 .hero-bg {
   position:absolute; inset:0;
@@ -108,7 +106,13 @@ body {
 .hero-eyebrow { font-family:'DM Mono',monospace; font-size:11px; letter-spacing:0.35em; color:var(--gold); text-transform:uppercase; margin-bottom:16px; opacity:0; animation:fadeUp 0.8s ease forwards 0.25s; }
 .hero-name { font-family:'Cormorant Garamond',serif; font-size:clamp(44px,6.5vw,84px); font-weight:300; line-height:1.05; letter-spacing:-0.02em; color:var(--ink); margin-bottom:8px; opacity:0; animation:fadeUp 0.9s ease forwards 0.38s; }
 .hero-name em { font-style:italic; color:var(--gold); }
-.hero-title { font-family:'Cormorant Garamond',serif; font-size:clamp(16px,2.2vw,22px); font-weight:300; font-style:italic; color:var(--ink3); margin-bottom:0; opacity:0; animation:fadeUp 0.9s ease forwards 0.5s; }
+.hero-title { font-family:'Cormorant Garamond',serif; font-size:clamp(16px,2.2vw,22px); font-weight:300; font-style:italic; color:var(--ink3); margin-bottom:20px; opacity:0; animation:fadeUp 0.9s ease forwards 0.5s; }
+.hero-contacts { display:flex; flex-wrap:wrap; gap:8px; opacity:0; animation:fadeUp 0.9s ease forwards 0.6s; }
+.hero-contact-link { display:inline-flex; align-items:center; gap:5px; padding:6px 14px; border:1px solid rgba(180,150,80,0.3); border-radius:3px; background:rgba(255,255,255,0.7); color:var(--gold); text-decoration:none; font-family:'DM Mono',monospace; font-size:10px; letter-spacing:0.07em; transition:all 0.2s; white-space:nowrap; backdrop-filter:blur(4px); }
+.hero-contact-link:hover { background:rgba(255,255,255,0.95); border-color:var(--gold-lt); }
+.hero-contact-link.li { border-color:rgba(10,102,194,0.4); color:#0A66C2; }
+.hero-contact-link.li:hover { background:rgba(238,243,251,0.95); }
+.hero-contact-link.muted { color:var(--muted); border-color:rgba(155,142,122,0.25); cursor:default; }
 
 .hero-summary { font-size:15px; line-height:1.85; color:var(--ink3); max-width:640px; margin-bottom:40px; opacity:0; animation:fadeUp 0.9s ease forwards 0.62s; }
 
@@ -234,10 +238,11 @@ body {
 .edu-cert { display:inline-flex; align-items:center; gap:6px; padding:4px 12px; border:1px solid var(--border); font-family:'DM Mono',monospace; font-size:10px; color:var(--gold); letter-spacing:0.08em; border-radius:2px; background:var(--gold-pale); }
 
 /* ── CONTACT ── */
-.contact-bar { background:var(--surface); border-top:1px solid var(--border2); padding:56px 60px; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:28px; box-shadow:0 -4px 20px rgba(100,70,20,0.06); }
-.contact-left .name-small { font-family:'Cormorant Garamond',serif; font-size:26px; font-weight:300; color:var(--ink); margin-bottom:5px; }
-.contact-left .tagline { font-size:12px; color:var(--muted); letter-spacing:0.1em; text-transform:uppercase; }
-.contact-links { display:flex; flex-wrap:wrap; gap:14px; }
+/* ── FOOTER ── */
+.contact-bar { background:var(--surface2); border-top:1px solid var(--border2); padding:36px 60px; display:flex; justify-content:center; align-items:center; text-align:center; }
+.contact-left .name-small { font-family:'Cormorant Garamond',serif; font-size:14px; font-weight:300; color:var(--muted); line-height:1.7; }
+.contact-left .tagline { font-size:11px; color:var(--muted); letter-spacing:0.08em; text-transform:uppercase; margin-top:4px; }
+.contact-links { display:none; }
 .contact-link { display:flex; align-items:center; gap:8px; padding:11px 18px; border:1px solid var(--border); color:var(--gold); text-decoration:none; font-family:'DM Mono',monospace; font-size:11px; letter-spacing:0.08em; transition:all 0.25s; border-radius:2px; background:var(--surface); }
 .contact-link:hover { background:var(--gold-pale); border-color:var(--gold-lt); }
 
@@ -246,7 +251,7 @@ body {
 /* ── RESPONSIVE ── */
 @media (max-width:900px) {
   .hero,.section,.contact-bar { padding:60px 24px; }
-  .nav { padding:14px 24px; } .nav-links { display:none; }
+  .nav { padding:12px 24px; } .nav-links { gap:16px; }
   .hero-head { flex-direction:column; gap:20px; }
   .hero-photo { width:90px; height:90px; }
   .geo-grid { grid-template-columns:1fr 1fr; }
@@ -273,8 +278,7 @@ body {
 
 <!-- NAV -->
 <nav class="nav">
-  <div class="nav-logo">Sandesh <span>A. Hegde</span></div>
-  <ul class="nav-links">
+  <ul class="nav-links" style="margin:0 auto;">
     <li><a href="#geography">Global</a></li>
     <li><a href="#experience">Experience</a></li>
     <li><a href="#impact">Impact</a></li>
@@ -283,6 +287,7 @@ body {
     <li><a href="#contact">Contact</a></li>
   </ul>
 </nav>
+
 
 <!-- HERO -->
 <section class="hero">
@@ -307,6 +312,12 @@ body {
         <p class="hero-eyebrow">Senior Product Executive · 20+ Years · 5 Countries</p>
         <h1 class="hero-name">Sandesh <em>A.</em> Hegde</h1>
         <p class="hero-title">Product Visionary. Business Builder. Global Technology Leader.</p>
+        <div class="hero-contacts">
+          <a href="mailto:sandesh.nitte@gmail.com" class="hero-contact-link">✉ sandesh.nitte@gmail.com</a>
+          <a href="tel:+919108557908" class="hero-contact-link">📞 +91 91085 57908</a>
+          <a href="https://www.linkedin.com/in/hsandesh/" target="_blank" class="hero-contact-link li">🔗 linkedin.com/in/hsandesh</a>
+          <span class="hero-contact-link muted">📍 Bengaluru, India</span>
+        </div>
       </div>
     </div>
 
@@ -603,13 +614,8 @@ body {
 <!-- CONTACT -->
 <footer class="contact-bar" id="contact">
   <div class="contact-left">
-    <div class="name-small">Sandesh A. Hegde</div>
-    <div class="tagline">Head of Product BFSI @ Pirai · Ex-VP MIDF · Ex-Yahoo Sunnyvale HQ + Yahoo India Bangalore · UK Exposed · 20+ Years</div>
-  </div>
-  <div class="contact-links">
-    <a href="mailto:sandesh.nitte@gmail.com" class="contact-link">✉ sandesh.nitte@gmail.com</a>
-    <a href="tel:+919108557908" class="contact-link">📞 +91 91085 57908</a>
-    <a href="https://www.linkedin.com/in/hsandesh/" target="_blank" class="contact-link">🔗 linkedin.com/in/hsandesh</a>
+    <div class="name-small">Sandesh A. Hegde &nbsp;·&nbsp; sandesh.nitte@gmail.com &nbsp;·&nbsp; linkedin.com/in/hsandesh</div>
+    <div class="tagline">Head of Product BFSI @ Pirai · Ex-VP MIDF · Ex-Yahoo! Sunnyvale + Bangalore · UK Exposed · 20+ Years</div>
   </div>
 </footer>
 
